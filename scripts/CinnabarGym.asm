@@ -81,8 +81,8 @@ MovementNpcToLeft:
 	db -1 ; end
 
 CinnabarGymGetOpponentTextScript:
-	ld a, [wd730]
-	bit 0, a
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	xor a
 	ld [wJoyIgnore], a
@@ -194,9 +194,9 @@ CinnabarGymStartBattleScript:
 	ld [wSpriteIndex], a
 	call EngageMapTrainer
 	call InitBattleEnemyParameters
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
+	ld hl, wStatusFlags3
+	set BIT_UNKNOWN_3_6, [hl]
+	set BIT_UNKNOWN_3_7, [hl]
 	ld a, [wSpriteIndex]
 	cp CINNABARGYM_BLAINE
 	jr z, .blaine

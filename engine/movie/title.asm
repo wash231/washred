@@ -15,7 +15,7 @@ PrepareTitleScreen::
 	xor a
 	ldh [hWY], a
 	ld [wLetterPrintingDelayFlags], a
-	ld hl, wd732
+	ld hl, wStatusFlags6
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a

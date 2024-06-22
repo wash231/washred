@@ -4,8 +4,8 @@ TryDoWildEncounter:
 	ld a, [wNPCMovementScriptPointerTableNum]
 	and a
 	ret nz
-	ld a, [wd736]
-	and a
+	ld a, [wMovementFlags]
+	and a ; is player exiting a door, jumping over a ledge, or fishing?
 	ret nz
 	callfar IsPlayerStandingOnDoorTileOrWarpTile
 	jr nc, .notStandingOnDoorOrWarpTile

@@ -236,8 +236,8 @@ SilphCo11FGiovanniAfterBattleScript:
 	jp SilphCo11FSetCurScript
 
 SilphCo11FGiovanniBattleFacingScript:
-	ld a, [wd730]
-	bit 0, a
+	ld a, [wStatusFlags5]
+	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	ld a, SILPHCO11F_GIOVANNI
 	ldh [hSpriteIndex], a
@@ -258,9 +258,9 @@ SilphCo11FGiovanniBattleFacingScript:
 	jp SilphCo11FSetCurScript
 
 SilphCo11FGiovanniStartBattleScript:
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
+	ld hl, wStatusFlags3
+	set BIT_UNKNOWN_3_6, [hl]
+	set BIT_UNKNOWN_3_7, [hl]
 	ld hl, SilphCo10FGiovanniILostAgainText
 	ld de, SilphCo10FGiovanniILostAgainText
 	call SaveEndBattleTextPointers

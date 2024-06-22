@@ -127,9 +127,9 @@ VermilionGymLTSurgeText:
 .before_beat
 	ld hl, .PreBattleText
 	call PrintText
-	ld hl, wd72d
-	set 6, [hl]
-	set 7, [hl]
+	ld hl, wStatusFlags3
+	set BIT_UNKNOWN_3_6, [hl]
+	set BIT_UNKNOWN_3_7, [hl]
 	ld hl, VermilionGymLTSurgeReceivedThunderBadgeText
 	ld de, VermilionGymLTSurgeReceivedThunderBadgeText
 	call SaveEndBattleTextPointers

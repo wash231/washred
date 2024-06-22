@@ -77,8 +77,8 @@ StatusScreen:
 	ld b, $1
 	call CalcStats ; Recalculate stats
 .DontRecalculate
-	ld hl, wd72c
-	set 1, [hl]
+	ld hl, wStatusFlags2
+	set BIT_NO_AUDIO_FADE_OUT, [hl]
 	ld a, $33
 	ldh [rNR50], a ; Reduce the volume
 	call GBPalWhiteOutWithDelay3
@@ -430,8 +430,8 @@ StatusScreen2:
 	call WaitForTextScrollButtonPress ; wait for button
 	pop af
 	ldh [hTileAnimations], a
-	ld hl, wd72c
-	res 1, [hl]
+	ld hl, wStatusFlags2
+	res BIT_NO_AUDIO_FADE_OUT, [hl]
 	ld a, $77
 	ldh [rNR50], a
 	call GBPalWhiteOut

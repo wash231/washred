@@ -7,8 +7,8 @@ IndigoPlateauLobby_Script:
 	ret z
 	ResetEvent EVENT_VICTORY_ROAD_1_BOULDER_ON_SWITCH
 	ld hl, wBeatLorelei
-	bit 1, [hl]
-	res 1, [hl]
+	bit BIT_BEAT_LORELEI, [hl]
+	res BIT_BEAT_LORELEI, [hl]
 	ret z
 	; Elite 4 events
 	ResetEventRange INDIGO_PLATEAU_EVENTS_START, EVENT_LANCES_ROOM_LOCK_DOOR

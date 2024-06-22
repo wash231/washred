@@ -587,7 +587,7 @@ ReturnToCableClubRoom:
 	push hl
 	res 0, [hl]
 	xor a
-	ld [wd72d], a
+	ld [wStatusFlags3], a ; clears BIT_INIT_TRADE_CENTER_FACING
 	dec a
 	ld [wDestinationWarpID], a
 	call LoadMapData

@@ -87,10 +87,10 @@ DEF TEXT_DELAY_SLOW   EQU %101 ; 5
 	const_skip 2                 ; 5-6 ; unused
 	const BIT_USED_FLY           ; 7
 
-; wBeatLorelei::
+; wElite4Flags::
 	const_def
-	const BIT_UNKNOWN_LORELEI_0 ; 0
-	const BIT_BEAT_LORELEI      ; 1
+	const BIT_UNUSED_BEAT_ELITE_4 ; 0
+	const BIT_STARTED_ELITE_4     ; 1
 
 ; wMovementFlags::
 	const_def

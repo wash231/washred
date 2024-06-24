@@ -2119,7 +2119,7 @@ wStatusFlags6:: db
 
 wStatusFlags7:: db
 
-wBeatLorelei:: db
+wElite4Flags:: db
 
 	ds 1
 

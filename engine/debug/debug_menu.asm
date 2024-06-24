@@ -100,7 +100,7 @@ TestBattle: ; unreferenced except in _DEBUG
 	ld a, RHYDON
 	ld [wcf91], a
 	ld a, 20
-	ld [wCurEnemyLVL], a
+	ld [wCurEnemyLevel], a
 	xor a
 	ld [wMonDataLocation], a
 	ld [wCurMap], a

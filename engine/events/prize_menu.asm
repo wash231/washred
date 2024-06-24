@@ -298,7 +298,7 @@ GetPrizeMonLevel:
 	jr .loop
 .matchFound
 	ld a, [hl]
-	ld [wCurEnemyLVL], a
+	ld [wCurEnemyLevel], a
 	ret
 
 INCLUDE "data/events/prize_mon_levels.asm"

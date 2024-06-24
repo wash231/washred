@@ -240,7 +240,7 @@ InitBattleEnemyParameters::
 	ld [wTrainerNo], a
 	ret
 .noTrainer
-	ld [wCurEnemyLVL], a
+	ld [wCurEnemyLevel], a
 	ret
 
 GetSpritePosition1::

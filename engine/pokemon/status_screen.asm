@@ -71,7 +71,7 @@ StatusScreen:
 ; mon is in a box or daycare
 	ld a, [wLoadedMonBoxLevel]
 	ld [wLoadedMonLevel], a
-	ld [wCurEnemyLVL], a
+	ld [wCurEnemyLevel], a
 	ld hl, wLoadedMonHPExp - 1
 	ld de, wLoadedMonStats
 	ld b, $1

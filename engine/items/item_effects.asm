@@ -495,7 +495,7 @@ ItemUseBall:
 	ld a, [wEnemyMonSpecies2]
 	ld [wcf91], a
 	ld a, [wEnemyMonLevel]
-	ld [wCurEnemyLVL], a
+	ld [wCurEnemyLevel], a
 	callfar LoadEnemyMonData
 	pop af
 	ld [wcf91], a
@@ -1259,7 +1259,7 @@ ItemUseMedicine:
 	ld bc, wPartyMon1Level - wPartyMon1
 	add hl, bc ; hl now points to level
 	ld a, [hl] ; a = level
-	ld [wCurEnemyLVL], a ; store level
+	ld [wCurEnemyLevel], a ; store level
 	call GetMonHeader
 	push de
 	ld a, d
@@ -1338,7 +1338,7 @@ ItemUseMedicine:
 	jr z, .vitaminNoEffect ; can't raise level above 100
 	inc a
 	ld [hl], a ; store incremented level
-	ld [wCurEnemyLVL], a
+	ld [wCurEnemyLevel], a
 	push hl
 	push de
 	ld d, a
@@ -1872,7 +1872,7 @@ RodResponse:
 	ld a, 1
 	ld [wMoveMissed], a
 	ld a, b ; level
-	ld [wCurEnemyLVL], a
+	ld [wCurEnemyLevel], a
 	ld a, c ; species
 	ld [wCurOpponent], a
 
@@ -2774,7 +2774,7 @@ SendNewMonToBox:
 	ld [de], a
 	inc de
 	push de
-	ld a, [wCurEnemyLVL]
+	ld a, [wCurEnemyLevel]
 	ld d, a
 	callfar CalcExperience
 	pop de

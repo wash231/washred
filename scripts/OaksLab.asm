@@ -925,7 +925,7 @@ OaksLabMonChoiceMenu:
 	xor a ; PLAYER_PARTY_DATA
 	ld [wMonDataLocation], a
 	ld a, 5
-	ld [wCurEnemyLVL], a
+	ld [wCurEnemyLevel], a
 	ld a, [wcf91]
 	ld [wd11e], a
 	call AddPartyMon

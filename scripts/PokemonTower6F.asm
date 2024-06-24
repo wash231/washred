@@ -36,7 +36,7 @@ PokemonTower6FDefaultScript:
 	ld a, RESTLESS_SOUL
 	ld [wCurOpponent], a
 	ld a, 30
-	ld [wCurEnemyLVL], a
+	ld [wCurEnemyLevel], a
 	ld a, SCRIPT_POKEMONTOWER6F_MAROWAK_BATTLE
 	ld [wPokemonTower6FCurScript], a
 	ld [wCurMapScript], a

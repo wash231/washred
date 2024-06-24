@@ -1597,7 +1597,7 @@ wTextBoxID:: db
 
 wCurrentMapScriptFlags:: db ; not exactly sure what this is used for, but it seems to be used as a multipurpose temp flag value
 
-wCurEnemyLVL:: db
+wCurEnemyLevel:: db
 
 ; pointer to list of items terminated by $FF
 wItemListPointer:: dw

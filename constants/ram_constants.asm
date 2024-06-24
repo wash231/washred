@@ -19,6 +19,19 @@ DEF TEXT_DELAY_FAST   EQU %001 ; 1
 DEF TEXT_DELAY_MEDIUM EQU %011 ; 3
 DEF TEXT_DELAY_SLOW   EQU %101 ; 5
 
+; wObtainedBadges::
+; wBeatGymFlags::
+	const_def
+	const BIT_BOULDERBADGE ; 0
+	const BIT_CASCADEBADGE ; 1
+	const BIT_THUNDERBADGE ; 2
+	const BIT_RAINBOWBADGE ; 3
+	const BIT_SOULBADGE    ; 4
+	const BIT_MARSHBADGE   ; 5
+	const BIT_VOLCANOBADGE ; 6
+	const BIT_EARTHBADGE   ; 7
+DEF NUM_BADGES EQU const_value
+
 ; wStatusFlags::
 	const_def
 	const BIT_STRENGTH_ACTIVE           ; 0

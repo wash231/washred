@@ -2093,36 +2093,20 @@ wUnusedCardKeyGateID:: db
 	ds 8
 
 wStatusFlags:: db
-
 	ds 1
-
-; redundant because it matches wObtainedBadges
-; used to determine whether to show name on statue and in two NPC text scripts
-wBeatGymFlags:: db
-
+wBeatGymFlags:: db ; redundant because it matches wObtainedBadges
 	ds 1
-
 wStatusFlags2:: db
-
 wCableClubDestinationMap::
 wStatusFlags3:: db
-
 wStatusFlags4:: db
-
 	ds 1
-
 wStatusFlags5:: db
-
 	ds 1
-
 wStatusFlags6:: db
-
 wStatusFlags7:: db
-
 wElite4Flags:: db
-
 	ds 1
-
 wMovementFlags:: db
 
 wCompletedInGameTradeFlags:: dw

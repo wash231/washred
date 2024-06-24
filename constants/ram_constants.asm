@@ -19,6 +19,11 @@ DEF TEXT_DELAY_FAST   EQU %001 ; 1
 DEF TEXT_DELAY_MEDIUM EQU %011 ; 3
 DEF TEXT_DELAY_SLOW   EQU %101 ; 5
 
+; wLetterPrintingDelayFlags::
+	const_def
+	const BIT_FAST_TEXT_DELAY ; 0
+	const BIT_TEXT_DELAY      ; 1
+
 ; wObtainedBadges::
 ; wBeatGymFlags::
 	const_def

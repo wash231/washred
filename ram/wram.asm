@@ -1721,10 +1721,6 @@ wObtainedBadges:: flag_array NUM_BADGES
 
 	ds 1
 
-; bit 0: If 0, limit the delay to 1 frame. Note that this has no effect if
-;        the delay has been disabled entirely through bit 1 of this variable
-;        or BIT_NO_TEXT_DELAY of wStatusFlags5.
-; bit 1: If 0, no delay.
 wLetterPrintingDelayFlags:: db
 
 wPlayerID:: dw

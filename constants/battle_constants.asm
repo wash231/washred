@@ -75,7 +75,7 @@ DEF SPDSPCDV_TRAINER EQU $88
 ; wPlayerBattleStatus1 or wEnemyBattleStatus1 bit flags
 	const_def
 	const STORING_ENERGY           ; 0 ; Bide
-	const THRASHING_ABOUT          ; 1 ; e.g. Thrash
+	const THRASHING_ABOUT          ; 1 ; Thrash, Petal Dance
 	const ATTACKING_MULTIPLE_TIMES ; 2 ; e.g. Double Kick, Fury Attack
 	const FLINCHED                 ; 3
 	const CHARGING_UP              ; 4 ; e.g. Solar Beam, Fly
@@ -92,11 +92,11 @@ DEF SPDSPCDV_TRAINER EQU $88
 	const HAS_SUBSTITUTE_UP   ; 4
 	const NEEDS_TO_RECHARGE   ; 5 ; Hyper Beam
 	const USING_RAGE          ; 6
-	const SEEDED              ; 7
+	const SEEDED              ; 7 ; Leech Seed
 
 ; wPlayerBattleStatus3 or wEnemyBattleStatus3 bit flags
 	const_def
-	const BADLY_POISONED      ; 0
+	const BADLY_POISONED      ; 0 ; Toxic
 	const HAS_LIGHT_SCREEN_UP ; 1
 	const HAS_REFLECT_UP      ; 2
 	const TRANSFORMED         ; 3

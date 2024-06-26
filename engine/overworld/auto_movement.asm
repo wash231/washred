@@ -1,5 +1,5 @@
 PlayerStepOutFromDoor::
-	ld hl, wStatusFlags5 ; should this be wMovementFlags?
+	ld hl, wStateFlags ; should this be wMovementFlags?
 	res BIT_EXITING_DOOR, [hl]
 	call IsPlayerStandingOnDoorTile
 	jr nc, .notStandingOnDoor
@@ -23,13 +23,13 @@ PlayerStepOutFromDoor::
 	ld hl, wMovementFlags
 	res BIT_STANDING_ON_DOOR, [hl]
 	res BIT_EXITING_DOOR, [hl]
-	ld hl, wStatusFlags5
-	res BIT_SCRIPTED_JOYPAD, [hl]
+	ld hl, wStateFlags
+	res BIT_SCRIPTED_MOVEMENT_STATE, [hl]
 	ret
 
 _EndNPCMovementScript::
-	ld hl, wStatusFlags5
-	res BIT_SCRIPTED_JOYPAD, [hl]
+	ld hl, wStateFlags
+	res BIT_SCRIPTED_MOVEMENT_STATE, [hl]
 	ld hl, wStatusFlags4
 	res BIT_INIT_SCRIPTED_MOVEMENT, [hl]
 	ld hl, wMovementFlags
@@ -86,7 +86,7 @@ PalletMovementScript_OakMoveLeft:
 	ret
 
 PalletMovementScript_PlayerMoveLeft:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz ; return if Oak is still moving
 	ld a, [wNumStepsToTake]
@@ -121,8 +121,8 @@ PalletMovementScript_WalkToLab:
 	call DecodeRLEList
 	ld hl, wStatusFlags4
 	res BIT_INIT_SCRIPTED_MOVEMENT, [hl]
-	ld hl, wStatusFlags5
-	set BIT_SCRIPTED_JOYPAD, [hl]
+	ld hl, wStateFlags
+	set BIT_SCRIPTED_MOVEMENT_STATE, [hl]
 	ld a, $4
 	ld [wNPCMovementScriptFunctionNum], a
 	ret
@@ -151,8 +151,8 @@ PalletMovementScript_Done:
 	ld a, HS_PALLET_TOWN_OAK
 	ld [wMissableObjectIndex], a
 	predef HideObject
-	ld hl, wStatusFlags5
-	res BIT_SCRIPTED_JOYPAD, [hl]
+	ld hl, wStateFlags
+	res BIT_SCRIPTED_MOVEMENT_STATE, [hl]
 	ld hl, wStatusFlags4
 	res BIT_INIT_SCRIPTED_MOVEMENT, [hl]
 	jp EndNPCMovementScript
@@ -207,8 +207,8 @@ PewterMovementScript_Done:
 	ld a, [wSimulatedJoypadStatesIndex]
 	and a
 	ret nz
-	ld hl, wStatusFlags5
-	res BIT_SCRIPTED_JOYPAD, [hl]
+	ld hl, wStateFlags
+	res BIT_SCRIPTED_MOVEMENT_STATE, [hl]
 	ld hl, wStatusFlags4
 	res BIT_INIT_SCRIPTED_MOVEMENT, [hl]
 	jp EndNPCMovementScript
@@ -242,8 +242,8 @@ PewterMovementScript_WalkToGym:
 	call DecodeRLEList
 	ld hl, wStatusFlags4
 	res BIT_INIT_SCRIPTED_MOVEMENT, [hl]
-	ld hl, wStatusFlags5
-	set BIT_SCRIPTED_JOYPAD, [hl]
+	ld hl, wStateFlags
+	set BIT_SCRIPTED_MOVEMENT_STATE, [hl]
 	ld a, $1
 	ld [wNPCMovementScriptFunctionNum], a
 	ret

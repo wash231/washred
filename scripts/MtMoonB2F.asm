@@ -129,7 +129,7 @@ MtMoon3FSuperNerdMoveUpMovementData:
 	db -1 ; end
 
 MtMoonB2FSuperNerdTakesOtherFossilScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN

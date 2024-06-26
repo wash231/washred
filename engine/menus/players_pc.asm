@@ -1,5 +1,5 @@
 PlayerPC::
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	set BIT_NO_TEXT_DELAY, [hl]
 	ld a, ITEM_NAME
 	ld [wNameListType], a
@@ -77,7 +77,7 @@ ExitPlayerPC:
 	xor a
 	ld [wListScrollOffset], a
 	ld [wBagSavedMenuItem], a
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_NO_TEXT_DELAY, [hl]
 	xor a
 	ld [wDoNotWaitForButtonPressAfterDisplayingText], a

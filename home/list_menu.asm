@@ -15,7 +15,7 @@ DisplayListMenuID::
 	ld a, BANK(DisplayBattleMenu)
 .bankswitch
 	call BankswitchHome
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	set BIT_NO_TEXT_DELAY, [hl]
 	xor a
 	ld [wMenuItemToSwap], a ; 0 means no item is currently being swapped
@@ -164,7 +164,7 @@ DisplayListMenuIDLoop::
 	ld [wChosenMenuItem], a
 	xor a
 	ldh [hJoy7], a ; joypad state update flag
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_NO_TEXT_DELAY, [hl]
 	jp BankswitchBack
 .checkOtherKeys ; check B, SELECT, Up, and Down keys
@@ -325,7 +325,7 @@ ExitListMenu::
 	ld [wMenuWatchMovingOutOfBounds], a
 	xor a
 	ldh [hJoy7], a
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_NO_TEXT_DELAY, [hl]
 	call BankswitchBack
 	xor a

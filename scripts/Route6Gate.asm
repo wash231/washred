@@ -55,8 +55,8 @@ Route6GatePlayerMovingScript:
 	ret
 
 Route6GateMovePlayerDownScript:
-	ld hl, wStatusFlags5
-	set BIT_SCRIPTED_JOYPAD, [hl]
+	ld hl, wStateFlags
+	set BIT_SCRIPTED_MOVEMENT_STATE, [hl]
 	ld a, D_DOWN
 	ld [wSimulatedJoypadStatesEnd], a
 	ld a, $1

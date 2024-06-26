@@ -81,7 +81,7 @@ MovementNpcToLeft:
 	db -1 ; end
 
 CinnabarGymGetOpponentTextScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	xor a

@@ -48,12 +48,12 @@ CountDownIgnoreInputBitReset:
 	ld [wIgnoreInputCounter], a
 	and a
 	ret nz
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	res BIT_UNKNOWN_5_1, a
 	res BIT_UNKNOWN_5_2, a
 	bit BIT_DISABLE_JOYPAD, a
 	res BIT_DISABLE_JOYPAD, a
-	ld [wStatusFlags5], a
+	ld [wStateFlags], a
 	ret z
 	xor a
 	ldh [hJoyPressed], a

@@ -82,7 +82,7 @@ BillsHousePokemonList::
 	ld a, 1
 	ld [wTopMenuItemX], a
 .billsPokemonLoop
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	set BIT_NO_TEXT_DELAY, [hl]
 	hlcoord 0, 0
 	ld b, 10
@@ -113,7 +113,7 @@ BillsHousePokemonList::
 	call LoadScreenTilesFromBuffer2
 	jr .billsPokemonLoop
 .cancel
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_NO_TEXT_DELAY, [hl]
 	call LoadScreenTilesFromBuffer2
 	jp TextScriptEnd

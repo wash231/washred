@@ -104,7 +104,7 @@ Route22FirstRivalBattleScript:
 	ret
 
 Route22Rival1StartBattleScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	ld a, [wSavedCoordIndex]
@@ -219,7 +219,7 @@ Route22Rival1ExitMovementData2:
 	db -1 ; end
 
 Route22Rival1ExitScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	xor a
@@ -258,7 +258,7 @@ Route22SecondRivalBattleScript:
 	ret
 
 Route22Rival2StartBattleScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	ld a, ROUTE22_RIVAL2
@@ -363,7 +363,7 @@ Route22Rival2ExitMovementData2:
 	db -1 ; end
 
 Route22Rival2ExitScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	xor a

@@ -679,8 +679,8 @@ ItemUseSurfboard:
 	jp c, SurfingAttemptFailed
 .surf
 	call .makePlayerMoveForward
-	ld hl, wStatusFlags5
-	set BIT_SCRIPTED_JOYPAD, [hl]
+	ld hl, wStateFlags
+	set BIT_SCRIPTED_MOVEMENT_STATE, [hl]
 	ld a, 2
 	ld [wWalkBikeSurfState], a ; change player state to surfing
 	call PlayDefaultMusic ; play surfing music
@@ -715,8 +715,8 @@ ItemUseSurfboard:
 	jp PrintText
 .stopSurfing
 	call .makePlayerMoveForward
-	ld hl, wStatusFlags5
-	set BIT_SCRIPTED_JOYPAD, [hl]
+	ld hl, wStateFlags
+	set BIT_SCRIPTED_MOVEMENT_STATE, [hl]
 	xor a
 	ld [wWalkBikeSurfState], a ; change player state to walking
 	dec a

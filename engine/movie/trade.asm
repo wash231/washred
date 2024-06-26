@@ -173,7 +173,7 @@ LoadTradingGFXAndMonNames:
 	call ClearSprites
 	ld a, $ff
 	ld [wUpdateSpritesEnabled], a
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	set BIT_NO_TEXT_DELAY, [hl]
 	ld a, [wOnSGB]
 	and a
@@ -218,7 +218,7 @@ Trade_SwapNames:
 Trade_Cleanup:
 	xor a
 	call LoadGBPal
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_NO_TEXT_DELAY, [hl]
 	ret
 

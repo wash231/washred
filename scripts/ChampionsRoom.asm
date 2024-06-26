@@ -136,7 +136,7 @@ OakEntranceAfterVictoryMovement:
 	db -1 ; end
 
 ChampionsRoomOakCongratulatesPlayerScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	ld a, PLAYER_DIR_LEFT
@@ -194,7 +194,7 @@ OakExitChampionsRoomMovement:
 	db -1 ; end
 
 ChampionsRoomOakExitsScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	ld a, HS_CHAMPIONS_ROOM_OAK

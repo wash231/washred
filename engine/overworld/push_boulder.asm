@@ -87,7 +87,7 @@ PushBoulderRightMovementData:
 	db -1 ; end
 
 DoBoulderDustAnimation::
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	callfar AnimateBoulderDust

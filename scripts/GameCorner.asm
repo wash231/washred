@@ -102,7 +102,7 @@ GameCornerMovement_Rocket_WalkDirect:
 	db -1 ; end
 
 GameCornerRocketExitScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	xor a
@@ -482,7 +482,7 @@ GameCornerOopsForgotCoinCaseText:
 	text_end
 
 GameCornerDrawCoinBox:
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	set BIT_NO_TEXT_DELAY, [hl]
 	hlcoord 11, 0
 	ld b, 5
@@ -513,7 +513,7 @@ GameCornerDrawCoinBox:
 	ld de, wPlayerCoins
 	ld c, $82
 	call PrintBCDNumber
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_NO_TEXT_DELAY, [hl]
 	ret
 

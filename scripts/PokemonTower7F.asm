@@ -41,7 +41,7 @@ PokemonTower7FEndBattleScript:
 	ret
 
 PokemonTower7FHideNPCScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	ld hl, wMissableObjectList

@@ -1,5 +1,5 @@
 GiveFossilToCinnabarLab::
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	set BIT_NO_TEXT_DELAY, [hl]
 	xor a
 	ld [wCurrentMenuItem], a
@@ -24,7 +24,7 @@ GiveFossilToCinnabarLab::
 	call TextBoxBorder
 	call UpdateSprites
 	call PrintFossilsInBag
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_NO_TEXT_DELAY, [hl]
 	call HandleMenuInput
 	bit BIT_B_BUTTON, a

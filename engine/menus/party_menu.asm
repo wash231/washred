@@ -172,7 +172,7 @@ RedrawPartyMenu_::
 	ld b, SET_PAL_PARTY_MENU
 	call RunPaletteCommand
 .printMessage
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	ld a, [hl]
 	push af
 	push hl

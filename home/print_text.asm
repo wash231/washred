@@ -1,8 +1,8 @@
 ; This function is used to wait a short period after printing a letter to the
 ; screen unless the player presses the A/B button or the delay is turned off
-; through the [wStatusFlags5] or [wLetterPrintingDelayFlags] flags.
+; through the [wStateFlags] or [wLetterPrintingDelayFlags] flags.
 PrintLetterDelay::
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_NO_TEXT_DELAY, a
 	ret nz
 	ld a, [wLetterPrintingDelayFlags]

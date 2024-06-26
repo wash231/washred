@@ -1620,7 +1620,7 @@ wSavedSpriteMapX:: db
 wWhichPrize:: db
 
 ; counts downward each frame
-; when it hits 0, BIT_DISABLE_JOYPAD of wStatusFlags5 is reset
+; when it hits 0, BIT_DISABLE_JOYPAD of wStateFlags is reset
 wIgnoreInputCounter:: db
 
 ; counts down once every step
@@ -2063,9 +2063,13 @@ wStatusFlags2:: db
 wCableClubDestinationMap::
 wStatusFlags3:: db
 wStatusFlags4:: db
+
 	ds 1
-wStatusFlags5:: db
+
+wStateFlags:: db
+
 	ds 1
+
 wStatusFlags6:: db
 wStatusFlags7:: db
 wElite4Flags:: db

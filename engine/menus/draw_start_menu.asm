@@ -23,7 +23,7 @@ DrawStartMenu::
 	ld [wLastMenuItem], a
 	xor a
 	ld [wMenuWatchMovingOutOfBounds], a
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	set BIT_NO_TEXT_DELAY, [hl]
 	hlcoord 12, 2
 	CheckEvent EVENT_GOT_POKEDEX
@@ -55,7 +55,7 @@ DrawStartMenu::
 	call PrintStartMenuItem
 	ld de, StartMenuExitText
 	call PlaceString
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_NO_TEXT_DELAY, [hl]
 	ret
 

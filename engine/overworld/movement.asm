@@ -175,7 +175,7 @@ UpdateNPCSprite:
 	jr nz, .next
 ; reached end of wNPCMovementDirections list
 	ld [hl], a ; store $ff in movement byte 1, disabling scripted movement
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_SCRIPTED_NPC_MOVEMENT, [hl]
 	xor a
 	ld [wSimulatedJoypadStatesIndex], a
@@ -740,8 +740,8 @@ DoScriptedNPCMovement:
 ; a few times in the game. It is used when the NPC and player must walk together
 ; in sync, such as when the player is following the NPC somewhere. An NPC can't
 ; be moved in sync with the player using the other method.
-	ld a, [wStatusFlags5]
-	bit BIT_SCRIPTED_JOYPAD, a
+	ld a, [wStateFlags]
+	bit BIT_SCRIPTED_MOVEMENT_STATE, a
 	ret z
 	ld hl, wStatusFlags4
 	bit BIT_INIT_SCRIPTED_MOVEMENT, [hl]

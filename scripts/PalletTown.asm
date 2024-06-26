@@ -91,7 +91,7 @@ PalletTownOakWalksToPlayerScript:
 	ret
 
 PalletTownOakNotSafeComeWithMeScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	xor a ; ld a, SPRITE_FACING_DOWN

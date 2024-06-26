@@ -89,7 +89,7 @@ MovementData_PewterMuseumGuyExit:
 	db -1 ; end
 
 PewterCityHideSuperNerd1Script:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	ld a, HS_MUSEUM_GUY
@@ -158,7 +158,7 @@ MovementData_PewterGymGuyExit:
 	db -1 ; end
 
 PewterCityHideYoungsterScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	ld a, HS_GYM_GUY

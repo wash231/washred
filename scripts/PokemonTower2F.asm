@@ -113,7 +113,7 @@ PokemonTower2FRivalDownThenRightMovement:
 	db -1 ; end
 
 PokemonTower2FRivalExitsScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	ld a, HS_POKEMON_TOWER_2F_RIVAL

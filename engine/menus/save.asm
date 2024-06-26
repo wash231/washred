@@ -12,7 +12,7 @@ LoadSAV:
 	ld a, $2 ; good checksum
 	jr .goodsum
 .badsum
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	push hl
 	set BIT_NO_TEXT_DELAY, [hl]
 	ld hl, FileDataDestroyedText

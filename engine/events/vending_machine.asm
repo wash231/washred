@@ -15,7 +15,7 @@ VendingMachineMenu::
 	ld [wTopMenuItemY], a
 	ld a, 1
 	ld [wTopMenuItemX], a
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	set BIT_NO_TEXT_DELAY, [hl]
 	hlcoord 0, 3
 	ld b, 8
@@ -28,7 +28,7 @@ VendingMachineMenu::
 	hlcoord 9, 6
 	ld de, DrinkPriceText
 	call PlaceString
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_NO_TEXT_DELAY, [hl]
 	call HandleMenuInput
 	bit BIT_B_BUTTON, a

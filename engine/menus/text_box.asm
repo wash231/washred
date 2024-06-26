@@ -37,14 +37,14 @@ DisplayTextBoxID_::
 	call TextBoxBorder
 	pop hl
 	call GetTextBoxIDText
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	push af
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	set BIT_NO_TEXT_DELAY, a
-	ld [wStatusFlags5], a
+	ld [wStateFlags], a
 	call PlaceString
 	pop af
-	ld [wStatusFlags5], a
+	ld [wStateFlags], a
 	call UpdateSprites
 	ret
 
@@ -128,7 +128,7 @@ GetAddressOfScreenCoords:
 INCLUDE "data/text_boxes.asm"
 
 DisplayMoneyBox:
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	set BIT_NO_TEXT_DELAY, [hl]
 	ld a, MONEY_BOX_TEMPLATE
 	ld [wTextBoxID], a
@@ -141,7 +141,7 @@ DisplayMoneyBox:
 	ld de, wPlayerMoney
 	ld c, $a3
 	call PrintBCDNumber
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_NO_TEXT_DELAY, [hl]
 	ret
 
@@ -149,9 +149,9 @@ CurrencyString:
 	db "      ¥@"
 
 DoBuySellQuitMenu:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	set BIT_NO_TEXT_DELAY, a
-	ld [wStatusFlags5], a
+	ld [wStateFlags], a
 	xor a
 	ld [wChosenMenuItem], a
 	ld a, BUY_SELL_QUIT_MENU_TEMPLATE
@@ -169,9 +169,9 @@ DoBuySellQuitMenu:
 	ld [wCurrentMenuItem], a
 	ld [wLastMenuItem], a
 	ld [wMenuWatchMovingOutOfBounds], a
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	res BIT_NO_TEXT_DELAY, a
-	ld [wStatusFlags5], a
+	ld [wStateFlags], a
 	call HandleMenuInput
 	call PlaceUnfilledArrowMenuCursor
 	bit BIT_A_BUTTON, a
@@ -205,9 +205,9 @@ DoBuySellQuitMenu:
 ; hl = address where the text box border should be drawn
 DisplayTwoOptionMenu:
 	push hl
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	set BIT_NO_TEXT_DELAY, a
-	ld [wStatusFlags5], a
+	ld [wStateFlags], a
 
 ; pointless because both values are overwritten before they are read
 	xor a
@@ -277,7 +277,7 @@ DisplayTwoOptionMenu:
 	pop hl
 	add hl, bc
 	call PlaceString
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_NO_TEXT_DELAY, [hl]
 	ld a, [wTwoOptionMenuID]
 	cp NO_YES_MENU

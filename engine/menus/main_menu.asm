@@ -27,7 +27,7 @@ MainMenu:
 	call RunDefaultPaletteCommand
 	call LoadTextBoxTilePatterns
 	call LoadFontTilePatterns
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	set BIT_NO_TEXT_DELAY, [hl]
 	ld a, [wSaveFileStatus]
 	cp 1
@@ -50,7 +50,7 @@ MainMenu:
 	ld de, NewGameText
 	call PlaceString
 .next2
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_NO_TEXT_DELAY, [hl]
 	call UpdateSprites
 	xor a

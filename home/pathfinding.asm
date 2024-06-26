@@ -32,7 +32,7 @@ MoveSprite_::
 	ld [wNPCNumScriptedSteps], a ; number of steps taken
 
 	pop bc
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	set BIT_SCRIPTED_NPC_MOVEMENT, [hl]
 	pop hl
 	xor a

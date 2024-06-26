@@ -77,8 +77,8 @@ Route16Gate1FPlayerMovingRightScript:
 	ret nz
 	xor a
 	ld [wJoyIgnore], a
-	ld hl, wStatusFlags5
-	res BIT_SCRIPTED_JOYPAD, [hl]
+	ld hl, wStateFlags
+	res BIT_SCRIPTED_MOVEMENT_STATE, [hl]
 	ld a, SCRIPT_ROUTE16GATE1F_DEFAULT
 	ld [wRoute16Gate1FCurScript], a
 	ret

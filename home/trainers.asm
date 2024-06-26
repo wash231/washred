@@ -160,7 +160,7 @@ ENDC
 
 ; display the before battle text after the enemy trainer has walked up to the player's sprite
 DisplayEnemyTrainerTextAndStartBattle::
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	and 1 << BIT_SCRIPTED_NPC_MOVEMENT
 	ret nz ; return if the enemy trainer hasn't finished walking to the player's sprite
 	ld [wJoyIgnore], a
@@ -211,7 +211,7 @@ EndTrainerBattle::
 	ld [wMissableObjectIndex], a               ; load corresponding missable object index and remove it
 	predef HideObject
 .skipRemoveSprite
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	bit BIT_UNKNOWN_5_4, [hl]
 	res BIT_UNKNOWN_5_4, [hl]
 	ret nz

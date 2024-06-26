@@ -19,7 +19,7 @@ _Joypad::
 	ld a, b
 	ldh [hJoyLast], a
 
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_DISABLE_JOYPAD, a
 	jr nz, DiscardButtonPresses
 

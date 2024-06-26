@@ -1,4 +1,4 @@
-; wStrengthFlags::
+; wStrengthFlags
 	const_def
 	const BIT_SEEN_BY_TRAINER      ; 0
 	const BIT_BOULDER_DUST         ; 1
@@ -9,7 +9,7 @@
 	const BIT_TRIED_PUSH_BOULDER   ; 6
 	const BIT_PUSHED_BOULDER       ; 7
 
-; wOptions::
+; wOptions
 DEF TEXT_DELAY_MASK EQU %111
 	const_def 6
 	const BIT_BATTLE_SHIFT     ; 6
@@ -19,13 +19,12 @@ DEF TEXT_DELAY_FAST   EQU %001 ; 1
 DEF TEXT_DELAY_MEDIUM EQU %011 ; 3
 DEF TEXT_DELAY_SLOW   EQU %101 ; 5
 
-; wLetterPrintingDelayFlags::
+; wLetterPrintingDelayFlags
 	const_def
 	const BIT_FAST_TEXT_DELAY ; 0
 	const BIT_TEXT_DELAY      ; 1
 
-; wObtainedBadges::
-; wBeatGymFlags::
+; wObtainedBadges, wBeatGymFlags
 	const_def
 	const BIT_BOULDERBADGE ; 0
 	const BIT_CASCADEBADGE ; 1
@@ -37,7 +36,7 @@ DEF TEXT_DELAY_SLOW   EQU %101 ; 5
 	const BIT_EARTHBADGE   ; 7
 DEF NUM_BADGES EQU const_value
 
-; wStatusFlags::
+; wStatusFlags
 	const_def
 	const BIT_STRENGTH_ACTIVE           ; 0
 	const BIT_SURF_ALLOWED              ; 1
@@ -48,12 +47,12 @@ DEF NUM_BADGES EQU const_value
 	const BIT_GAVE_SAFFRON_GUARDS_DRINK ; 6
 	const BIT_UNUSED_CARD_KEY           ; 7
 
-; wStatusFlags2::
+; wStatusFlags2
 	const_def
 	const BIT_WILD_ENCOUNTER_COOLDOWN ; 0
 	const BIT_NO_AUDIO_FADE_OUT       ; 1
 
-; wStatusFlags3::
+; wStatusFlags3
 	const_def
 	const BIT_INIT_TRADE_CENTER_FACING ; 0
 	const_skip 2                       ; 1-2 ; unused
@@ -63,7 +62,7 @@ DEF NUM_BADGES EQU const_value
 	const BIT_TALKED_TO_TRAINER        ; 6
 	const BIT_PRINT_END_BATTLE_TEXT    ; 7
 
-; wStatusFlags4::
+; wStatusFlags4
 	const_def
 	const BIT_GOT_LAPRAS              ; 0
 	const BIT_UNKNOWN_4_1             ; 1
@@ -74,18 +73,18 @@ DEF NUM_BADGES EQU const_value
 	const BIT_LINK_CONNECTED          ; 6
 	const BIT_INIT_SCRIPTED_MOVEMENT  ; 7
 
-; wStatusFlags5::
+; wStateFlags
 	const_def
-	const BIT_SCRIPTED_NPC_MOVEMENT ; 0
-	const BIT_UNKNOWN_5_1           ; 1
-	const BIT_UNKNOWN_5_2           ; 2
-	const_skip                      ; 3 ; unused
-	const BIT_UNKNOWN_5_4           ; 4
-	const BIT_DISABLE_JOYPAD        ; 5
-	const BIT_NO_TEXT_DELAY         ; 6
-	const BIT_SCRIPTED_JOYPAD       ; 7
+	const BIT_SCRIPTED_NPC_MOVEMENT   ; 0
+	const BIT_UNKNOWN_5_1             ; 1
+	const BIT_UNKNOWN_5_2             ; 2
+	const_skip                        ; 3 ; unused
+	const BIT_UNKNOWN_5_4             ; 4
+	const BIT_DISABLE_JOYPAD          ; 5
+	const BIT_NO_TEXT_DELAY           ; 6
+	const BIT_SCRIPTED_MOVEMENT_STATE ; 7
 
-; wStatusFlags6::
+; wStatusFlags6
 	const_def
 	const BIT_GAME_TIMER_COUNTING ; 0
 	const BIT_DEBUG_MODE          ; 1
@@ -95,7 +94,7 @@ DEF NUM_BADGES EQU const_value
 	const BIT_ALWAYS_ON_BIKE      ; 5
 	const BIT_ESCAPE_WARP         ; 6
 
-; wStatusFlags7::
+; wStatusFlags7
 	const_def
 	const BIT_TEST_BATTLE        ; 0
 	const BIT_NO_MAP_MUSIC       ; 1
@@ -105,12 +104,12 @@ DEF NUM_BADGES EQU const_value
 	const_skip 2                 ; 5-6 ; unused
 	const BIT_USED_FLY           ; 7
 
-; wElite4Flags::
+; wElite4Flags
 	const_def
 	const BIT_UNUSED_BEAT_ELITE_4 ; 0
 	const BIT_STARTED_ELITE_4     ; 1
 
-; wMovementFlags::
+; wMovementFlags
 	const_def
 	const BIT_STANDING_ON_DOOR ; 0
 	const BIT_EXITING_DOOR     ; 1

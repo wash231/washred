@@ -64,7 +64,7 @@ OakEntryMovement:
 	db -1 ; end
 
 OaksLabHideShowOaksScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	ld a, HS_OAKS_LAB_OAK_2
@@ -290,7 +290,7 @@ OaksLabChoseStarterScript:
 	ret
 
 OaksLabRivalChoosesStarterScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	ld a, SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
@@ -377,7 +377,7 @@ OaksLabRivalChallengesPlayerScript:
 	ret
 
 OaksLabRivalStartBattleScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 
@@ -472,7 +472,7 @@ OaksLabRivalStartsExitScript:
 	db -1 ; end
 
 OaksLabPlayerWatchRivalExitScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	jr nz, .checkRivalPosition
 	ld a, HS_OAKS_LAB_RIVAL
@@ -552,7 +552,7 @@ OaksLabRivalFaceUpOakFaceDownScript:
 	jp SetSpriteFacingDirectionAndDelay
 
 OaksLabOakGivesPokedexScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	call EnableAutoTextBoxDrawing
@@ -626,7 +626,7 @@ OaksLabOakGivesPokedexScript:
 	ret
 
 OaksLabRivalLeavesWithPokedexScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	call PlayDefaultMusic
@@ -853,10 +853,10 @@ OaksLabShowPokeBallPokemonScript:
 	ldh [hSpriteDataOffset], a
 	call GetPointerWithinSpriteStateData1
 	ld [hl], SPRITE_FACING_RIGHT
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	set BIT_NO_TEXT_DELAY, [hl]
 	predef StarterDex
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_NO_TEXT_DELAY, [hl]
 	call ReloadMapData
 	ld c, 10

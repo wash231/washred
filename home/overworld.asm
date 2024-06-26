@@ -64,8 +64,8 @@ OverworldLoopLessDelay::
 	ld a, [wCurOpponent]
 	and a
 	jp nz, .newBattle
-	ld a, [wStatusFlags5]
-	bit BIT_SCRIPTED_JOYPAD, a
+	ld a, [wStateFlags]
+	bit BIT_SCRIPTED_MOVEMENT_STATE, a
 	jr z, .notSimulating
 	ldh a, [hJoyHeld]
 	jr .checkIfStartIsPressed
@@ -82,7 +82,7 @@ OverworldLoopLessDelay::
 	bit BIT_A_BUTTON, a
 	jp z, .checkIfDownButtonIsPressed
 ; if A is pressed
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_UNKNOWN_5_2, a
 	jp nz, .noDirectionButtonsPressed
 	call IsPlayerCharacterBeingControlledByGame
@@ -178,8 +178,8 @@ OverworldLoopLessDelay::
 
 .handleDirectionButtonPress
 	ld [wPlayerDirection], a ; new direction
-	ld a, [wStatusFlags5]
-	bit BIT_SCRIPTED_JOYPAD, a
+	ld a, [wStateFlags]
+	bit BIT_SCRIPTED_MOVEMENT_STATE, a
 	jr nz, .noDirectionChange ; ignore direction changes if we are
 	ld a, [wCheckFor180DegreeTurn]
 	and a
@@ -289,8 +289,8 @@ OverworldLoopLessDelay::
 	and a
 	jp nz, CheckMapConnections ; it seems like this check will never succeed (the other place where CheckMapConnections is run works)
 ; walking animation finished
-	ld a, [wStatusFlags5]
-	bit BIT_SCRIPTED_JOYPAD, a
+	ld a, [wStateFlags]
+	bit BIT_SCRIPTED_MOVEMENT_STATE, a
 	jr nz, .doneStepCounting ; if button presses are being simulated, don't count steps
 ; step counting
 	ld hl, wStepCounter
@@ -1837,8 +1837,8 @@ JoypadOverworld::
 	ld a, D_DOWN
 	ldh [hJoyHeld], a ; on the cycling road, if there isn't a trainer and the player isn't pressing buttons, simulate a down press
 .notForcedDownwards
-	ld a, [wStatusFlags5]
-	bit BIT_SCRIPTED_JOYPAD, a
+	ld a, [wStateFlags]
+	bit BIT_SCRIPTED_MOVEMENT_STATE, a
 	ret z
 ; if simulating button presses
 	ldh a, [hJoyHeld]
@@ -1877,8 +1877,8 @@ JoypadOverworld::
 	ld a, [hl]
 	and (1 << BIT_SPINNING) | (1 << BIT_LEDGE_OR_FISHING) | (1 << 5) | (1 << 4) | (1 << 3)
 	ld [hl], a
-	ld hl, wStatusFlags5
-	res BIT_SCRIPTED_JOYPAD, [hl]
+	ld hl, wStateFlags
+	res BIT_SCRIPTED_MOVEMENT_STATE, [hl]
 	ret
 
 ; function to check the tile ahead to determine if the character should get on land or keep surfing
@@ -1891,8 +1891,8 @@ JoypadOverworld::
 ; and 2429 always sets c to 0xF0. There is no 0xF0 background tile, so it
 ; is considered impassable and it is detected as a collision.
 CollisionCheckOnWater::
-	ld a, [wStatusFlags5]
-	bit BIT_SCRIPTED_JOYPAD, a
+	ld a, [wStateFlags]
+	bit BIT_SCRIPTED_MOVEMENT_STATE, a
 	jp nz, .noCollision ; return and clear carry if button presses are being simulated
 	ld a, [wPlayerDirection] ; the direction that the player is trying to go in
 	ld d, a
@@ -2380,7 +2380,7 @@ SwitchToMapRomBank::
 IgnoreInputForHalfSecond:
 	ld a, 30
 	ld [wIgnoreInputCounter], a
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	ld a, [hl]
 	or (1 << BIT_DISABLE_JOYPAD) | (1 << BIT_UNKNOWN_5_2) | (1 << BIT_UNKNOWN_5_1)
 	ld [hl], a ; set ignore input bit

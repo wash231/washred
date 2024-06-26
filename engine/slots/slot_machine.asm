@@ -26,7 +26,7 @@ PromptUserToPlaySlots:
 	call GBPalNormal
 	ld a, $e4
 	ldh [rOBP0], a
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	set BIT_NO_TEXT_DELAY, [hl]
 	xor a
 	ld [wSlotMachineAllowMatchesCounter], a
@@ -34,7 +34,7 @@ PromptUserToPlaySlots:
 	ld bc, $14
 	call FillMemory
 	call MainSlotMachineLoop
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_NO_TEXT_DELAY, [hl]
 	xor a
 	ld [wSlotMachineAllowMatchesCounter], a

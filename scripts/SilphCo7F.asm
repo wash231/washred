@@ -169,7 +169,7 @@ SilphCo7FDefaultScript:
 	db -1 ; end
 
 SilphCo7FRivalStartBattleScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	xor a
@@ -252,7 +252,7 @@ SilphCo7FRivalAfterBattleScript:
 	db -1 ; end
 
 SilphCo7FRivalExitScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	ld a, HS_SILPH_CO_7F_RIVAL

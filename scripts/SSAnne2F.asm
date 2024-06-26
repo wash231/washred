@@ -87,7 +87,7 @@ SSAnne2FSetFacingDirectionScript:
 	jp SetSpriteFacingDirectionAndDelay
 
 SSAnne2FRivalStartBattleScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	call SSAnne2FSetFacingDirectionScript
@@ -164,7 +164,7 @@ SSAnne2FRivalAfterBattleScript:
 	db -1 ; end
 
 SSAnne2FRivalExitScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	xor a

@@ -6,7 +6,7 @@ DisplayDiploma::
 	call ClearScreen
 	xor a
 	ld [wUpdateSpritesEnabled], a
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	set BIT_NO_TEXT_DELAY, [hl]
 	call DisableLCD
 	ld hl, CircleTile
@@ -65,7 +65,7 @@ DisplayDiploma::
 	ld a, $90
 	ldh [rOBP0], a
 	call WaitForTextScrollButtonPress
-	ld hl, wStatusFlags5
+	ld hl, wStateFlags
 	res BIT_NO_TEXT_DELAY, [hl]
 	call GBPalWhiteOutWithDelay3
 	call RestoreScreenTilesAndReloadTilePatterns

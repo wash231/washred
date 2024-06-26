@@ -46,7 +46,7 @@ BillsHousePokemonWalkToMachineScript:
 	db -1 ; end
 
 BillsHousePokemonEntersMachineScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	ld a, HS_BILL_POKEMON
@@ -97,7 +97,7 @@ BillExitMachineMovement:
 	db -1 ; end
 
 BillsHouseCleanupScript:
-	ld a, [wStatusFlags5]
+	ld a, [wStateFlags]
 	bit BIT_SCRIPTED_NPC_MOVEMENT, a
 	ret nz
 	xor a

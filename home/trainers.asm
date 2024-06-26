@@ -174,8 +174,8 @@ StartTrainerBattle::
 	ld [wJoyIgnore], a
 	call InitBattleEnemyParameters
 	ld hl, wStatusFlags3
-	set BIT_UNKNOWN_3_6, [hl]
-	set BIT_UNKNOWN_3_7, [hl]
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
 	ld hl, wStatusFlags4
 	set BIT_UNKNOWN_4_1, [hl]
 	ld hl, wCurMapScript
@@ -187,7 +187,7 @@ EndTrainerBattle::
 	set 5, [hl]
 	set 6, [hl]
 	ld hl, wStatusFlags3
-	res BIT_UNKNOWN_3_7, [hl]
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
 	ld hl, wStrengthFlags
 	res BIT_SEEN_BY_TRAINER, [hl] ; player is no longer engaged by any trainer
 	ld a, [wIsInBattle]
@@ -341,8 +341,8 @@ EngageMapTrainer::
 PrintEndBattleText::
 	push hl
 	ld hl, wStatusFlags3
-	bit BIT_UNKNOWN_3_7, [hl]
-	res BIT_UNKNOWN_3_7, [hl]
+	bit BIT_PRINT_END_BATTLE_TEXT, [hl]
+	res BIT_PRINT_END_BATTLE_TEXT, [hl]
 	pop hl
 	ret z
 	ldh a, [hLoadedROMBank]

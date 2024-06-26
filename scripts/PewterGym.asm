@@ -112,8 +112,8 @@ PewterGymBrockText:
 	ld hl, .PreBattleText
 	call PrintText
 	ld hl, wStatusFlags3
-	set BIT_UNKNOWN_3_6, [hl]
-	set BIT_UNKNOWN_3_7, [hl]
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
 	ld hl, PewterGymBrockReceivedBoulderBadgeText
 	ld de, PewterGymBrockReceivedBoulderBadgeText
 	call SaveEndBattleTextPointers

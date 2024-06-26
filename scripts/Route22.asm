@@ -127,8 +127,8 @@ Route22Rival1StartBattleScript:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, wStatusFlags3
-	set BIT_UNKNOWN_3_6, [hl]
-	set BIT_UNKNOWN_3_7, [hl]
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
 	ld hl, Route22Rival1DefeatedText
 	ld de, Route22Rival1VictoryText
 	call SaveEndBattleTextPointers
@@ -283,8 +283,8 @@ Route22Rival2StartBattleScript:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld hl, wStatusFlags3
-	set BIT_UNKNOWN_3_6, [hl]
-	set BIT_UNKNOWN_3_7, [hl]
+	set BIT_TALKED_TO_TRAINER, [hl]
+	set BIT_PRINT_END_BATTLE_TEXT, [hl]
 	ld hl, Route22Rival2DefeatedText
 	ld de, Route22Rival2VictoryText
 	call SaveEndBattleTextPointers

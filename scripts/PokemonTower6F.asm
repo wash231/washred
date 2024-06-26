@@ -53,7 +53,7 @@ PokemonTower6FMarowakBattleScript:
 	ld a, A_BUTTON | B_BUTTON | SELECT | START | D_RIGHT | D_LEFT | D_UP | D_DOWN
 	ld [wJoyIgnore], a
 	ld a, [wStatusFlags3]
-	bit BIT_UNKNOWN_3_6, a
+	bit BIT_TALKED_TO_TRAINER, a
 	ret nz
 	call UpdateSprites
 	ld a, D_RIGHT | D_LEFT | D_UP | D_DOWN

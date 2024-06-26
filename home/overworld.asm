@@ -325,7 +325,7 @@ OverworldLoopLessDelay::
 	jp nc, CheckWarpsNoCollision ; check for warps if there was no battle
 .battleOccurred
 	ld hl, wStatusFlags3
-	res BIT_UNKNOWN_3_6, [hl]
+	res BIT_TALKED_TO_TRAINER, [hl]
 	ld hl, wStatusFlags7
 	res BIT_TRAINER_BATTLE, [hl]
 	ld hl, wCurrentMapScriptFlags

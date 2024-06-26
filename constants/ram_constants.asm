@@ -60,8 +60,8 @@ DEF NUM_BADGES EQU const_value
 	const BIT_WARP_FROM_CUR_SCRIPT     ; 3
 	const BIT_ON_DUNGEON_WARP          ; 4
 	const BIT_NO_NPC_FACE_PLAYER       ; 5
-	const BIT_UNKNOWN_3_6              ; 6
-	const BIT_UNKNOWN_3_7              ; 7
+	const BIT_TALKED_TO_TRAINER        ; 6
+	const BIT_PRINT_END_BATTLE_TEXT    ; 7
 
 ; wStatusFlags4::
 	const_def

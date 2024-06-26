@@ -208,10 +208,11 @@ LoadTownMap_Fly::
 	call PlaySound
 	ld a, [hl]
 	ld [wDestinationMap], a
-	ld hl, wd732
-	set 3, [hl]
+	ld hl, wWarpFlags
+	set BIT_FLY_WARP, [hl]
+	assert wWarpFlags + 1 == wStatusFlags7
 	inc hl
-	set 7, [hl]
+	set BIT_USED_FLY, [hl]
 .pressedB
 	xor a
 	ld [wTownMapSpriteBlinkingEnabled], a

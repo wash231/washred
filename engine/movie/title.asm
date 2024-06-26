@@ -15,9 +15,11 @@ PrepareTitleScreen::
 	xor a
 	ldh [hWY], a
 	ld [wLetterPrintingDelayFlags], a
-	ld hl, wd732
+	ld hl, wWarpFlags
 	ld [hli], a
+	assert wWarpFlags + 1 == wStatusFlags7
 	ld [hli], a
+	assert wStatusFlags7 + 1 == wElite4Flags
 	ld [hl], a
 	ld a, BANK(Music_TitleScreen)
 	ld [wAudioROMBank], a
@@ -218,7 +220,7 @@ ENDC
 	ld [wNewSoundID], a
 	call PlaySound
 	xor a
-	ld [wUnusedCC5B], a
+	ld [wUnusedFlag], a
 
 ; Keep scrolling in new mons indefinitely until the user performs input.
 .awaitUserInterruptionLoop

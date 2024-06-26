@@ -1157,9 +1157,9 @@ HandlePlayerBlackOut:
 	ld hl, LinkBattleLostText
 .noLinkBattle
 	call PrintText
-	ld a, [wStatusFlags6]
+	ld a, [wWarpFlags]
 	res BIT_ALWAYS_ON_BIKE, a
-	ld [wStatusFlags6], a
+	ld [wWarpFlags], a
 	call ClearScreen
 	scf
 	ret
@@ -6776,7 +6776,7 @@ InitOpponent:
 	jr InitBattleCommon
 
 DetermineWildOpponent:
-	ld a, [wStatusFlags6]
+	ld a, [wWarpFlags]
 	bit BIT_DEBUG_MODE, a
 	jr z, .notDebugMode
 	ldh a, [hJoyHeld]

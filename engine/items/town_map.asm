@@ -208,9 +208,9 @@ LoadTownMap_Fly::
 	call PlaySound
 	ld a, [hl]
 	ld [wDestinationMap], a
-	ld hl, wStatusFlags6
+	ld hl, wWarpFlags
 	set BIT_FLY_WARP, [hl]
-	assert wStatusFlags6 + 1 == wStatusFlags7
+	assert wWarpFlags + 1 == wStatusFlags7
 	inc hl
 	set BIT_USED_FLY, [hl]
 .pressedB

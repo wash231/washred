@@ -36,7 +36,7 @@ SeafoamIslandsB3F_Script:
 	ld [wDungeonWarpDestinationMap], a
 	ld hl, Seafoam4HolesCoords
 	call IsPlayerOnDungeonWarp
-	ld a, [wStatusFlags6]
+	ld a, [wWarpFlags]
 	bit BIT_DUNGEON_WARP, a
 	ret nz
 .runCurrentMapScript

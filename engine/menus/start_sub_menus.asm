@@ -142,7 +142,7 @@ StartMenu_Pokemon::
 	jp .loop
 .canFly
 	call ChooseFlyDestination
-	ld a, [wStatusFlags6]
+	ld a, [wWarpFlags]
 	bit BIT_FLY_WARP, a
 	jp nz, .goBackToMap
 	call LoadFontTilePatterns
@@ -214,7 +214,7 @@ StartMenu_Pokemon::
 .canTeleport
 	ld hl, .warpToLastPokemonCenterText
 	call PrintText
-	ld hl, wStatusFlags6
+	ld hl, wWarpFlags
 	set BIT_FLY_WARP, [hl]
 	set BIT_ESCAPE_WARP, [hl]
 	ld hl, wStatusFlags4
@@ -371,7 +371,7 @@ StartMenu_Item::
 	ld a, [wcf91]
 	cp BICYCLE
 	jr nz, .notBicycle2
-	ld a, [wStatusFlags6]
+	ld a, [wWarpFlags]
 	bit BIT_ALWAYS_ON_BIKE, a
 	jr z, .useItem_closeMenu
 	ld hl, CannotGetOffHereText

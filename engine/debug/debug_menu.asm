@@ -55,7 +55,7 @@ IF DEF(_DEBUG)
 	jp z, TestBattle
 
 	; DEBUG
-	ld hl, wStatusFlags6
+	ld hl, wWarpFlags
 	set BIT_DEBUG_MODE, [hl]
 	jp StartNewGameDebug
 

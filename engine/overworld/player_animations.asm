@@ -11,7 +11,7 @@ EnterMapAnim::
 	jr nz, .flyAnimation
 	ld a, SFX_TELEPORT_ENTER_1
 	call PlaySound
-	ld hl, wStatusFlags6
+	ld hl, wWarpFlags
 	bit BIT_DUNGEON_WARP, [hl]
 	res BIT_DUNGEON_WARP, [hl]
 	pop hl
@@ -122,7 +122,7 @@ _LeaveMapAnim::
 .playerNotStandingOnWarpPadOrHole
 	ld a, $4
 	call StopMusic
-	ld a, [wStatusFlags6]
+	ld a, [wWarpFlags]
 	bit BIT_ESCAPE_WARP, a
 	jr z, .flyAnimation
 ; if going to the last used pokemon center

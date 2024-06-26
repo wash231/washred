@@ -66,7 +66,7 @@ VictoryRoad3FDefaultScript:
 	jr nz, .hole
 	ld hl, wStatusFlags3
 	res BIT_ON_DUNGEON_WARP, [hl]
-	ld hl, wStatusFlags6
+	ld hl, wWarpFlags
 	res BIT_DUNGEON_WARP, [hl]
 	ret
 .hole
